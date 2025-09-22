@@ -6,6 +6,7 @@ export default class Footer extends React.Component {
     super(props);
   }
   render() {
+    return null; // To be removed after acceptance
     return (
       <div className="uk-text-center uk-text-meta">
         <a href="https://www.omron.com/sinicx/" target="_blank">

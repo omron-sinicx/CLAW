@@ -1,108 +1,152 @@
 theme: default # default || dark
-organization: OMRON SINIC X
-twitter: '@omron_sinicx'
-title: 'Multi-Agent Behavior Retrieval: Retrieval-Augmented Policy Training for Cooperative Manipulation by Mobile Robots'
-conference: IROS2024
+organization: # OMRON SINIC X
+twitter: #'@omron_sinicx'
+title: 'Safe Robot Learning in Contact-Rich Manipulation via A Low-Cost Soft Gripper and Haptic Feedback Teleoperation'
+conference: CoRL 2025 - Workshop on Open-Source Hardware in the Era of Robot Learning
 resources:
-  paper: https://arxiv.org/abs/1909.13111
+  paper: # To be added when published
   poster:
-  code: https://github.com/omron-sinicx/multipolar
-  video: https://www.youtube.com/embed/W8nBFKDxsb0
-  blog: https://medium.com/sinicx/multipolar-multi-source-policy-aggregation-for-transfer-reinforcement-learning-between-diverse-bc42a152b0f5
-  demo: https://colab.research.google.com/
-  huggingface: https://huggingface.co/
-description: explore a new challenge in transfer RL, where only a set of source policies collected under unknown diverse dynamics is available for learning a target task efficiently.
-image: https://omron-sinicx.github.io/${your-repository-name}/teaser.png
-url: https://omron-sinicx.github.io/${your-repository-name}
-speakerdeck: b7a0614c24014dcbbb121fbb9ed234cd
-authors:
-  - name: So Kuroki
-    affiliation: [1, 2]
-    url: http://barekatain.me/
-    position: intern
-  - name: Mai Nishimura
-    affiliation: [1]
-    position: Senior Researcher
-    url: https://denkiwakame.github.io
-  - name: Tadashi Kozuno
-    affiliation: [1]
-    position: Senior Researcher
-    url: https://sites.google.com/view/masashihamaya/home
-    #  - name: Mai Nishimura
-    #    affiliation: [1]
-    #    url: https://denkiwakame.github.io
-    #  - name: Asako Kanezaki
-    #    affiliation: [2]
-    #    url: https://kanezaki.github.io/
-contact_ids: ['github', 'omron', 2] #=> github issues, contact@sinicx.com, 2nd author
+  code: # Design will be open after acceptance
+  video: # Add demo video link
+  blog:
+  demo:
+  huggingface:
+description: A safe and cost-effective robot learning system that combines a novel soft end-effector (CLAW) with an intuitive haptic teleoperation interface for contact-rich manipulation tasks.
+# image: https://omron-sinicx.github.io/${your-repository-name}/teaser.png
+# url: https://omron-sinicx.github.io/${your-repository-name}
+# speakerdeck:
+# authors:
+#   - name: # TBD
+#     affiliation: [] # TBD
+#     url: # To be revealed after acceptance
+#     position:
+# contact_ids: ['github', 'omron'] #=> github issues, contact@sinicx.com
 affiliations:
-  - OMRON SINIC X Corporation
-  - Technical University of Munich
-meta:
-  - '* work done as an intern at OMRON SINIC X.'
-bibtex: >
-  # arXiv version
+  # - Anonymous Institution
+# meta:
+#   - 'Authors and affiliations will be revealed after acceptance.'
+# bibtex: >
+#   # Workshop version
 
-  @article{barekatain2019multipolar,
-    title={MULTIPOLAR: Multi-Source Policy Aggregation for Transfer Reinforcement Learning between Diverse Environmental Dynamics},
-    author={Barekatain, Mohammadamin and Yonetani, Ryo and Hamaya, Masashi},
-    journal={arXiv preprint arXiv:1909.13111},
-    year={2019}
-  }
-
-  # IJCAI version
-
-  @inproceedings{barekatain2020multipolar,
-    title={MULTIPOLAR: Multi-Source Policy Aggregation for Transfer Reinforcement Learning between Diverse Environmental Dynamics},
-    author={Barekatain, Mohammadamin and Yonetani, Ryo and Hamaya, Masashi},
-    booktitle={International Joint Conference on Artificial Intelligence (IJCAI)},
-    year={2020}
-  }
+#   @inproceedings{anonymous2025claw,
+#     title={Safe Robot Learning in Contact-Rich Manipulation via A Low-Cost Soft Gripper and Haptic Feedback Teleoperation},
+#     author={Anonymous Authors},
+#     booktitle={CoRL2025 Workshop on Open-Source Hardware in the Era of Robot Learning},
+#     year={2025}
+#   }
 header:
   bg_curve:
-    sinic_curve.png
+    # sinic_curve.png
     #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
 
 teaser: teaser.png
 overview: |
-  This is a versatile template designed to satisfy your research project page needs, all while harnessing the power of **UIKit** and **React**. Built on the foundations of simplicity and flexibility, this template allows you to focus on expressing your ideas without the hassle of directly handling CSS—thanks to customizable SASS variables.
-  With markdown as your canvas and $\KaTeX$ for precise equations, crafting clear and engaging project page becomes effortless. Whether you're unraveling complex theories or presenting your findings, this template aims to support your scholarly endeavors with grace and ease.
-  *Need to edit HTML directly?* Fear not! In addition to markdown, you can also directly write HTML with ease. Feel empowered to craft your content exactly as you envision it, whether through markdown's simplicity or the precision of HTML.
+  Safety is a critical challenge in robot learning for contact-rich manipulation tasks, where unexpected collisions can cause damage and hinder learning. This study introduces a low-cost robot learning system that combines a novel soft end-effector, **CLAW** (**C**ompliant **L**eaf‑spring in **A**nisotropic soft **W**rist), with an intuitive haptic teleoperation interface for position-controlled robots.
+
+  CLAW addresses key limitations of existing soft end-effectors by providing large 6-degree-of-freedom deformation, adjustable anisotropic stiffness, and lightweight (330g) construction at a low cost (~$550). Using an imitation learning approach, our system achieved a **76% success rate** in benchmark peg-insertion tasks, significantly outperforming both fin-ray-type (43%) and rigid grippers (36%).
+
+  The system integrates both fail-soft capabilities (enabling robots to safely withstand collisions) and fault-avoidance features (providing haptic feedback for safer teleoperation).
 
 body:
-  - title: Media examples
+  - title: System Overview
     text: |
-      You can access media files in `public` directly like: `<img src="method.png" />` 
+      The proposed system integrates three main components to enable safe robot learning for contact-rich manipulation:
 
-      <img src="method.png" alt="" />
-      <span class="uk-text-meta">Example figcaption text</span>
+      <div class="uk-text-center">
+        <img src="method.png" alt="CLAW System Overview" class="uk-align-center uk-responsive-width" />
+        <div class="uk-text-meta">Safe robot learning system overview: (a) novel soft end-effector CLAW, (b) haptic-feedback teleoperation interface, and (c) variety of contact-rich tasks</div>
+      </div>
 
-      See also [UIKit Video Components Documentation](https://getuikit.com/docs/video) and [Grid system](https://getuikit.com/docs/grid)
+      1. **CLAW Soft End-Effector**: A compliant leaf-spring design providing 6-DoF deformation and anisotropic stiffness
+      2. **Haptic Teleoperation Interface**: Position-controlled robot with force feedback for intuitive demonstrations  
+      3. **Imitation Learning**: Action Chunking Transformer (ACT) method for policy learning from demonstrations
+
+  - title: CLAW Design and Performance
+    text: |
+      CLAW (**C**ompliant **L**eaf‑spring in **A**nisotropic soft **W**rist) is designed to meet four key requirements:
+
+      - **Large and multi-directional deformation**: 6-DoF compliance to absorb unexpected collisions
+      - **Anisotropic and adjustable stiffness**: Direction-dependent stiffness with three lock modes
+      - **Lightweight construction**: Only 330g total mass 
+      - **Low cost and simple implementation**: ~$550 using readily available components
+
+      <div class="uk-grid-small uk-child-width-1-2@s uk-text-center" uk-grid>
+        <div>
+          <img src="result1.png" alt="CLAW Success Rates" class="uk-align-center uk-responsive-width" />
+          <div class="uk-text-meta">Success rates showing CLAW outperforming Fin Ray and rigid grippers</div>
+        </div>
+        <div>
+          <img src="result2.png" alt="CLAW Deformation" class="uk-align-center uk-responsive-width" />
+          <div class="uk-text-meta">CLAW deformation capabilities in multiple directions</div>
+        </div>
+      </div>
+
+  - title: Experimental Results
+    text: |
+      We evaluated CLAW against two baseline grippers using the FMB (Functional Manipulation Benchmark) assembly board:
+
+      #### Success Rates on Peg-in-Hole Tasks
+      |Gripper Type|Success Rate|Key Characteristics|
+      |--|--|--|
+      |**CLAW (haptic)** | **76%** | Lowest contact forces, zero emergency stops|
+      |CLAW (no haptic) | 72% | Good performance without haptic feedback|
+      |Fin Ray (parallel) | 43% | Moderate forces, some emergency stops|
+      |Fin Ray (perpendicular) | 41% | Higher forces, occasional stops|
+      |Rigid gripper | 36% | Highest forces, frequent emergency stops|
+
+      #### Safety Metrics
+      |Metric|CLAW (haptic)|CLAW (no haptic)|Fin Ray|Rigid|
+      |--|--|--|--|--|
+      |**Normal force [N]** | **2.922 ± 3.332** | 3.854 ± 4.673 | 4.092 ± 4.479 | 6.656 ± 6.214 |
+      |**Emergency stops**   | **0** | 0 | 6 | 9 |
+
+      CLAW demonstrated superior performance with significantly lower contact forces and zero emergency stops, confirming both improved task success and enhanced safety.
+
+  - title: Advanced Manipulation Tasks
+    text: |
+      Beyond benchmark evaluation, our system successfully performed challenging real-world tasks:
+
       <div uk-slider>
-        <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
+        <div class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
           <div>
-            <video
-              src="demo.mp4"
-              loop
-              muted
-              uk-video="autoplay:inview"
+            <img
+              src="task1.png"
+              alt="Micrometer-level peg insertion"
+              class="uk-align-center uk-responsive-width"
               />
+            <div class="uk-text-meta uk-text-center">Micrometer-level peg insertion (50μm clearance): 90% success</div>
           </div>
           <div>
-            <video
-              src="demo.mp4"
-              loop
-              muted
-              uk-video="autoplay:inview"
+            <img
+              src="task2.png"
+              alt="Glass tube insertion"
+              class="uk-align-center uk-responsive-width"
               />
+            <div class="uk-text-meta uk-text-center">Glass tube insertion (0.5mm clearance): 85% success</div>
           </div>
           <div>
-            <video
-              src="demo.mp4"
-              loop
-              muted
-              uk-video="autoplay:inview"
+            <img
+              src="task4.png"
+              alt="Dish cap placement"
+              class="uk-align-center uk-responsive-width"
               />
+            <div class="uk-text-meta uk-text-center">Dish cap placement (random position): 68% success</div>
+          </div>
+          <div>
+            <img
+              src="task5.png"
+              alt="Drawer pulling task"
+              class="uk-align-center uk-responsive-width"
+              />
+            <div class="uk-text-meta uk-text-center">Drawer pulling (grasp + pull): 75% success</div>
+          </div>
+          <div>
+            <img
+              src="task3.png"
+              alt="Complex manipulation tasks"
+              class="uk-align-center uk-responsive-width"
+              />
+            <div class="uk-text-meta uk-text-center">Complex manipulation: Drawing smiley face (46.7% success)</div>
           </div>
         </div>
         <div class="uk-flex uk-flex-center uk-margin-small">
@@ -110,155 +154,15 @@ body:
           <a class="uk-icon-button uk-margin-small-left" href uk-slidenav-next uk-slider-item="next"></a>
         </div>
       </div>
-  - title: Markdown examples
-    text: |
-      Here's our demo text showcasing the power of markdown and KaTeX integration!
-      Markdown allows you to easily format text using simple syntax.
-      - **bold**
-      - *italic*
-      - `inline code`.
 
-      You can also create headings of various levels:
-      # Heading Level 1
-      ## Heading Level 2
-      ### Heading Level 3
-      #### Heading Level 4
-      Markdown allows you to create tables like the following:
-      #### Motion Planning (MP) Dataset
-      markdown version
-      |Method|Opt|Exp|Hmean|
-      |--|--|--|--|
-      |BF| 65.8 (63.8, 68.0)| 44.1 (42.8, 45.5) | 44.8 (43.4, 46.3)|
-      |WA*| 68.4 (66.5, 70.4)| 35.8 (34.5, 37.1) | 40.4 (39.0, 41.8)|
-      |**Neural A*** | **87.7 (86.6, 88.9)**| 40.1 (38.9, 41.3) | 52.0 (50.7, 53.3)|
 
-      Of course, you can also directly write tables in HTML if needed. For more details, refer to the [UIKit Table documentation](https://getuikit.com/docs/table).
-      <h4>Motion Planning (MP) Dataset</h4>
-      <p>HTML version</p>
-      <div class="uk-overflow-auto">
-        <table class="uk-table uk-table-small uk-text-small uk-table-divider">
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th>Opt</th>
-              <th>Exp</th>
-              <th>Hmean</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                BF
-                <br />
-                WA*
-              </td>
-              <td>
-                65.8 (63.8, 68.0)
-                <br />
-                68.4 (66.5, 70.4)
-              </td>
-              <td>
-                44.1 (42.8, 45.5)
-                <br />
-                35.8 (34.5, 37.1)
-              </td>
-              <td>
-                44.8 (43.4, 46.3)
-                <br />
-                40.4 (39.0, 41.8)
-              </td>
-            </tr>
-            <tr>
-              <td>
-                SAIL
-                <br />
-                SAIL-SL
-                <br />
-                BB-A*
-              </td>
-              <td>
-                5.7 (4.6, 6.8)
-                <br />
-                3.1 (2.3, 3.8)
-                <br />
-                31.2 (28.8, 33.5)
-              </td>
-              <td>
-                58.0 (56.1, 60.0)
-                <br />
-                57.6 (55.7, 59.6)
-                <br />
-                52.0 (50.2, 53.9)
-              </td>
-              <td>
-                7.7 (6.4, 9.0)
-                <br />
-                4.4 (3.5, 5.3)
-                <br />
-                31.1 (29.2, 33.0)
-              </td>
-            </tr>
-            <tr class="uk-active">
-              <td>
-                Neural BF
-                <br />
-                <b>Neural A*</b>
-              </td>
-              <td>
-                75.5 (73.8, 77.1)
-                <br />
-                <b>87.7 (86.6, 88.9)</b>
-              </td>
-              <td>
-                45.9 (44.6, 47.2)
-                <br />
-                40.1 (38.9, 41.3)
-              </td>
-              <td>
-                52.0 (50.7, 53.4)
-                <br />
-                52.0 (50.7, 53.3)
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h3>Selected Path Planning Results</h3>
-      <img
-        src="assets/result1.png"
-        class="uk-align-center uk-responsive-width"
-        alt=""
-      />
-      <h3>Path Planning Results on SSD Dataset</h3>
-      <img
-        src="assets/result2.png"
-        class="uk-align-center uk-responsive-width"
-        alt=""
-      />
-  - title: KaTeX examples
-    text: >
-      $\KaTeX$ enables you to write mathematical expressions beautifully within your text (e.g. $\alpha$, $\beta$, $\gamma$ ).
-      $$ax^2 + bx + c = 0$$
-      $$ \int \oint \sum \prod $$
-      $$ \begin{CD} A @>a>> B \\ @VbVV @AAcA \\ C @= D \end{CD} $$
-      [KaTeX supports a wide range of mathematical symbols and equations](https://katex.org/docs/support_table.html), ensuring your technical content is both clear and visually appealing.
-      With markdown for text formatting and KaTeX for mathematical expressions, our template empowers you to communicate complex ideas effectively. Whether you're writing a scientific paper or a technical blog post, harnessing these tools will elevate your content and engage your readers.
-projects:
-  - title: 'maru: a miniature-sized wheeled robot for swarm robotics research'
-    journal: "CHI'24"
-    img: https://getuikit.com/docs/images/light.jpg
-    description: |
-      "maru" (= miniature assemblage adaptive robot unit) is a custom-made, miniature-sized, two-wheeled robot designed specifically for tabletop swarm robotics research.
-    url: https://github.com/omron-sinicx/swarm-body
-  - title: 'Language-Guided Pattern Formation for Swarm Robotics with Multi-Agent Reinforcement Learning'
-    journal: "IROS'24"
-    img: https://omron-sinicx.github.io/language-guided-pattern-formation/assets/teaser.png
-    description: |
-      "maru" (= miniature assemblage adaptive robot unit) is a custom-made, miniature-sized, two-wheeled robot designed specifically for tabletop swarm robotics research.
-    url: https://github.com/omron-sinicx/swarm-body
-  - title: 'Language-Guided Pattern Formation for Swarm Robotics with Multi-Agent Reinforcement Learning'
-    journal: "IROS'24"
-    img: method.png
-    description: |
-      "maru" (= miniature assemblage adaptive robot unit) is a custom-made, miniature-sized, two-wheeled robot designed specifically for tabletop swarm robotics research.
-    url: https://github.com/omron-sinicx/swarm-body
+      #### Task Success Rates
+
+      | Task                                   | Success Rate |
+      |----------------------------------------|--------------|
+      | Peg-in-hole (50μm clearance)           | 90.0%        |
+      | Glass-tube insertion (0.5mm clearance) | 85.0%        |
+      | Dish-cap placement (random position)   | 68.0%        |
+      | Drawer pulling (grasp + pull)          | 75.0%        |
+      | Smiley face drawing (multi-step)       | 46.7%        |
+      | Vertical peg-in-hole (50μm clearance)  | 45.0%        |
