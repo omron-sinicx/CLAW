@@ -132,3 +132,14 @@ body:
       | Drawer pulling (grasp + pull)          | 75.0%        |
       | Smiley face drawing (multi-step)       | 46.7%        |
       | Vertical peg-in-hole (50μm clearance)  | 45.0%        |
+
+  - title: Door Opening Task
+    text: |
+      <div>
+        <video
+          src="opening_door.mp4"
+          loop
+          muted
+          uk-video="autoplay:inview"
+          />
+      </div>
