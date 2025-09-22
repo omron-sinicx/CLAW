@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { marked } from 'marked';
 import markedKatex from 'marked-katex-extension';
+import AdvancedTasks from './advanced-tasks.jsx';
 
 const renderer = new marked.Renderer();
 renderer.table = (header, body) => {
@@ -49,6 +50,24 @@ export default class Body extends React.Component {
     return this.props.body ? (
       <div className="uk-section">
         {this.props.body.map((subsection, idx) => {
+          // Special handling for Advanced Manipulation Tasks
+          if (
+            subsection.title === 'Advanced Manipulation Tasks' &&
+            subsection.tasks
+          ) {
+            return (
+              <div key={'subsection-' + idx}>
+                <Content title={subsection.title} />
+                <AdvancedTasks tasks={subsection.tasks} />
+                {/* Render any additional text content after the tasks */}
+                {subsection.additionalText && (
+                  <Content text={subsection.additionalText} />
+                )}
+              </div>
+            );
+          }
+
+          // Default rendering for other sections
           return (
             <div key={'subsection-' + idx}>
               <Content title={subsection.title} />

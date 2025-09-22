@@ -32,7 +32,7 @@ $accent-color: #e55927;
 
 $global-link-color: $accent-color;
 $global-link-hover-color: $accent-color;
-$theme-color: #fffdfd;
+$theme-color: #f9f9f9;
 $theme-color-fg: #000;
 $global-color: $theme-color-fg;
 $global-emphasis-color: $theme-color-fg;
@@ -55,3 +55,47 @@ $navbar-background: $theme-color;
 @import 'uikit/src/scss/uikit.scss';
 @import 'normalize.css/normalize.css';
 // @import "uikit/src/scss/uikit-theme.scss";
+
+// Custom styles for zoomable images
+.zoomable-image {
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.advanced-tasks-container {
+  .thumbnail-button {
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &.active {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Zoom overlay styles
+.zoom-overlay {
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
