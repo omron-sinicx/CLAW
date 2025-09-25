@@ -39,7 +39,7 @@ header:
     # sinic_curve.png
     #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
 
-teaser: teaser.mp4
+teaser: teaser_2.png
 overview: |
   Safety is a critical challenge in robot learning for contact-rich manipulation tasks, where unexpected collisions can cause damage and hinder learning. This study introduces a low-cost robot learning system that combines a novel soft end-effector, **CLAW** (**C**ompliant **L**eaf‑spring in **A**nisotropic soft **W**rist), with an intuitive haptic teleoperation interface for position-controlled robots.
 
