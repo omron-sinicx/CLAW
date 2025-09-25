@@ -155,7 +155,7 @@ body:
 
       <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
         <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Half Drag Task</div>
+          <div style="font-weight: bold; margin-bottom: 6px;">Dragging along rail</div>
           <video
             src="half_drag_Q.mp4"
             controls
@@ -178,7 +178,32 @@ body:
         </div>
       </div>
 
-      ### Variable Stiffness Demonstrations
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Horizontal Peg Insertion with Heavy Peg (50μm)</div>
+          <video
+            src="heavypeg.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 600px;"
+          />
+          <div class="uk-text-meta">Heavy peg insertion task demonstrating robustness</div>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Glass Tube Insertion</div>
+          <video
+            src="glasstube.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 600px;"
+          />
+          <div class="uk-text-meta">Delicate glass tube insertion demonstrating precision control</div>
+        </div>
+      </div>
+
+      ### Selective Variable Stiffness 
 
       <div style="text-align: center; margin-bottom: 16px;">
         <div style="font-weight: bold; margin-bottom: 6px;">Door Opening Task</div>
