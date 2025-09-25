@@ -12,10 +12,14 @@ export default class Overview extends React.Component {
   render() {
     return (
       <div className="uk-section">
-        <img
+        <video
           src={`${this.props.teaser}`}
           className="uk-align-center uk-responsive-width"
-          alt=""
+          controls
+          autoPlay
+          muted
+          loop
+          style={{ maxWidth: '100%', height: 'auto' }}
         />
         {this.props.description && (
           <p className="uk-text-secondary uk-text-center uk-margin-bottom">

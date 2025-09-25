@@ -32,13 +32,14 @@ $accent-color: #e55927;
 
 $global-link-color: $accent-color;
 $global-link-hover-color: $accent-color;
-$theme-color: #f9f9f9;
+$theme-color: #ffffff;
 $theme-color-fg: #000;
 $global-color: $theme-color-fg;
 $global-emphasis-color: $theme-color-fg;
 $base-heading-color: $theme-color-fg;
+$global-background: #ffffff;
 
-$background-secondary-background: $theme-color;
+$background-secondary-background: #f5f5f5;
 $button-primary-background: $theme-color;
 $global-primary-background: $accent-color;
 $text-primary-color: $theme-color-fg;
@@ -98,4 +99,15 @@ $navbar-background: $theme-color;
   to {
     opacity: 1;
   }
+}
+
+// Body and page background set to white
+html,
+body {
+  background-color: #ffffff !important;
+}
+
+// Body section with white background
+.uk-container .uk-section {
+  background-color: #ffffff;
 }

@@ -39,7 +39,7 @@ header:
     # sinic_curve.png
     #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
 
-teaser: teaser.png
+teaser: teaser.mp4
 overview: |
   Safety is a critical challenge in robot learning for contact-rich manipulation tasks, where unexpected collisions can cause damage and hinder learning. This study introduces a low-cost robot learning system that combines a novel soft end-effector, **CLAW** (**C**ompliant **L**eaf‑spring in **A**nisotropic soft **W**rist), with an intuitive haptic teleoperation interface for position-controlled robots.
 
@@ -70,74 +70,78 @@ body:
       - **Lightweight construction**: Only 330g total mass 
       - **Low cost and simple implementation**: ~$550 using readily available components
 
-      <div class="uk-text-center">
-        <div style="margin-left: 100px; margin-right: 100px;">
-          <img src="result1.png" alt="CLAW Success Rates" class="uk-align-center uk-responsive-width" />
-          <div class="uk-text-meta">Success rates for FMB insertion tasks, showing CLAW outperforming Fin Ray and rigid grippers</div>
+      #### Technical Specifications
+      <div style="display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; align-items: center; margin: 16px 0;">
+        <div style="flex: 1; min-width: 200px;">
+          <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+            <tr><td style="font-weight: bold; padding: 4px 8px; border-bottom: 1px solid #ddd;">Weight</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">330 g</td></tr>
+            <tr><td style="font-weight: bold; padding: 4px 8px; border-bottom: 1px solid #ddd;">Size (W×H×L)</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">155×150×85 mm</td></tr>
+            <tr><td style="font-weight: bold; padding: 4px 8px;">Max Grip Force</td><td style="padding: 4px 8px;">7.5 N</td></tr>
+          </table>
         </div>
+        <div style="flex: 1; min-width: 200px;">
+          <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+            <tr><td colspan="2" style="font-weight: bold; padding: 4px 8px; border-bottom: 1px solid #ddd; text-align: center;">Deformation Range</td></tr>
+            <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">X/Y-axis</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">±40 mm</td></tr>
+            <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">Z-axis</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">+20/-10 mm</td></tr>
+            <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">Pitch/Roll</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">±15°</td></tr>
+            <tr><td style="padding: 4px 8px;">Yaw</td><td style="padding: 4px 8px;">±30°/±45°</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="uk-text-center">
         <div style="margin-top: 24px;">
-          <img src="result2.png" alt="CLAW Deformation" class="uk-align-center uk-responsive-width" />
+          <img src="deformation.png" alt="CLAW Deformation" class="uk-align-center uk-responsive-width" />
           <div class="uk-text-meta">CLAW deformation capabilities in multiple directions</div>
         </div>
       </div>
 
-  - title: Experimental Results
+      <div class="uk-text-center">
+        <div style="margin-top: 24px;">
+          <img src="lock.png" alt="CLAW Locking Modes" class="uk-align-center uk-responsive-width" style="width: 50%; max-width: 50%;" />
+          <div class="uk-text-meta">Three locking modes create selective variable stiffness: (a) Free mode allows full compliance, (b) Half lock mode provides anistropic stiffness, (c) Full lock mode maximizes rigidity for force transmission</div>
+        </div>
+      </div>
+
+  - title: Teleoperation Interface
     text: |
-      We evaluated CLAW against two baseline grippers using the FMB (Functional Manipulation Benchmark) assembly board:
+      We open source a bilateral teleoperation interface designed for position-based robots with force sensors at the end effector. The system provides intuitive haptic feedback for safer and more effective robot control, particularly beneficial for contact-rich manipulation tasks.
 
-      #### Success Rates on FMB Peg-in-Hole Tasks
-      |Gripper Type|Success Rate|Key Characteristics|
-      |--|--|--|
-      |**CLAW (haptic)** | **76%** | Lowest contact forces, zero emergency stops|
-      |CLAW (no haptic) | 72% | Good performance without haptic feedback|
-      |Fin Ray (parallel) | 43% | Moderate forces, some emergency stops|
-      |Fin Ray (perpendicular) | 41% | Higher forces, occasional stops|
-      |Rigid gripper | 36% | Highest forces, frequent emergency stops|
+      <div class="teleop-container" style="display: flex; gap: 24px; align-items: center; margin-bottom: 16px;">
+        <div class="teleop-left" style="flex: 0 0 70%; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+          <img src="teleop.png" alt="Teleoperation System Diagram" style="width: 100%; max-width: 100%;" />
+          <div class="uk-text-meta">Bilateral teleoperation system architecture with force feedback and gravity compensation</div>
+        </div>
+        <div class="teleop-right" style="flex: 0 0 30%; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+          <img src="teleop_real.png" alt="Physical Teleoperation Setup" style="width: 100%; max-width: 100%;" />
+          <div class="uk-text-meta">Physical setup showing leader device with lever mechanism for stiffness selection and follower robot with CLAW</div>
+        </div>
+      </div>
 
-      #### Safety Metrics
-      |Metric|CLAW (haptic)|CLAW (no haptic)|Fin Ray|Rigid|
-      |--|--|--|--|--|
-      |**Normal force [N]** | **2.922 ± 3.332** | 3.854 ± 4.673 | 4.092 ± 4.479 | 6.656 ± 6.214 |
-      |**Emergency stops**   | **0** | 0 | 6 | 9 |
+      <style>
+        @media (max-width: 768px) {
+          .teleop-container {
+            flex-direction: column !important;
+          }
+          .teleop-left, .teleop-right {
+            flex: 1 1 100% !important;
+            max-width: 100% !important;
+          }
+        }
+      </style>
 
-      CLAW demonstrated superior performance with significantly lower contact forces and zero emergency stops, confirming both improved task success and enhanced safety.
+      The interface features a lever mechanism for intuitive stiffness selection, allowing operators to switch between different compliance modes during teleoperation. This human-in-the-loop approach enables more natural and safe interaction with the environment while leveraging the variable stiffness capabilities of the CLAW end-effector.
 
-  - title: Advanced Manipulation Tasks
-    tasks:
-      - image: task1.png
-        alt: Micrometer-level peg insertion
-        caption: 'Micrometer-level peg insertion (50μm clearance): 90% success'
-      - image: task2.png
-        alt: Glass tube insertion
-        caption: 'Glass tube insertion (0.5mm clearance): 85% success'
-      - image: task4.png
-        alt: Dish cap placement
-        caption: 'Dish cap placement (random position): 68% success'
-      - image: task5.png
-        alt: Drawer pulling task
-        caption: 'Drawer pulling (grasp + pull): 75% success'
-      - image: task3.png
-        alt: Complex manipulation tasks
-        caption: 'Complex manipulation: Drawing smiley face (46.7% success)'
-    additionalText: |
-      Beyond benchmark evaluation, our system successfully performed challenging real-world tasks. Click on the images above to zoom in for better detail.
+  - title: Real-world Manipulation Tasks
+    text: |
+      Beyond benchmark evaluation, our system successfully performed challenging real-world tasks:
 
-      #### Task Success Rates
+      **Learned trajectory via ACT played at 1X**
 
-      | Task                                   | Success Rate |
-      |----------------------------------------|--------------|
-      | Peg-in-hole (50μm clearance)           | 90.0%        |
-      | Glass-tube insertion (0.5mm clearance) | 85.0%        |
-      | Dish-cap placement (random position)   | 68.0%        |
-      | Drawer pulling (grasp + pull)          | 75.0%        |
-      | Smiley face drawing (multi-step)       | 46.7%        |
-      | Vertical peg-in-hole (50μm clearance)  | 45.0%        |
-
-
-      #### Micrometer-level Precision Tasks
       <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Horizontal Orientation</div>
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Horizontal Orientation Peg Insertion (50μm)</div>
           <video
             src="5um_peg_right_Q.mp4"
             controls
@@ -147,8 +151,8 @@ body:
           />
           <div class="uk-text-meta">50μm clearance peg insertion task</div>
         </div>
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Vertical Orientation</div>
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Vertical Orientation Peg Insertion (50μm)</div>
           <video
             src="vertical_peg_success_Q.mp4"
             controls
@@ -160,107 +164,109 @@ body:
         </div>
       </div>
 
-      #### Door Opening Task
-      <div>
-        <video
-          src="opening_door.mp4"
-          controls
-          loop
-          muted
-          style="width: 100%; max-width: 600px;"
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Half Drag Task</div>
+          <video
+            src="half_drag_Q.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 600px;"
           />
-      </div>
-
-      #### Drawing Task
-      <div style="margin-top: 24px;">
-        <video
-          src="smiley face_Q.mp4"
-          controls
-          loop
-          muted
-          style="width: 100%; max-width: 600px;"
+          <div class="uk-text-meta">Half drag manipulation task</div>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Drawing Task</div>
+          <video
+            src="smiley face_Q.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 600px;"
           />
-        <div class="uk-text-meta">Smiley face drawing task demonstrating precise control</div>
+          <div class="uk-text-meta">Smiley face drawing task demonstrating precise control</div>
+        </div>
       </div>
 
       ### Variable Stiffness Demonstrations
 
-      #### Key Insertion
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-weight: bold; margin-bottom: 6px;">Door Opening Task</div>
+        <div style="display: flex; gap: 24px; align-items: stretch; justify-content: center; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px; max-width: 500px;">
+            <video
+              src="opening_door.mp4"
+              controls
+              loop
+              muted
+              style="width: 100%; height: 100%; object-fit: cover;"
+            />
+          </div>
+          <div style="flex: 1; min-width: 300px; max-width: 500px;">
+            <img 
+              src="door_opening.png" 
+              alt="Door Opening Force Analysis" 
+              style="width: 100%; height: 100%; object-fit: contain;"
+            />
+          </div>
+        </div>
+        <div style="margin-top: 12px; text-align: left; max-width: 1000px; margin-left: auto; margin-right: auto;">
+          <div class="uk-text-meta">
+            This experiment demonstrates the benefit of variable stiffness: <strong>full lock mode</strong> is used during the push/rotation phase to efficiently transmit torque, then switches to <strong>free mode</strong> once the latch releases, allowing the door handle's return spring to set the final pose without robot resistance. This human-like strategy reduces the need for precise "rotate-back" motions and improves generalization across different door mechanisms.
+          </div>
+        </div>
+      </div>
 
-      <div style="margin-top: 24px;">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <div style="font-weight: bold; margin-bottom: 6px;">Key Insertion</div>
         <video
           src="var_stiffness_key_Q.mp4"
           controls
           loop
           muted
           style="width: 100%; max-width: 600px;"
-          />
+        />
         <div class="uk-text-meta">Variable stiffness demonstration with key insertion</div>
-      </div>
-
-      #### Half Drag Task
-      <div style="margin-top: 24px;">
-        <video
-          src="half_drag_Q.mp4"
-          controls
-          loop
-          muted
-          style="width: 100%; max-width: 600px;"
-          />
-        <div class="uk-text-meta">Half drag manipulation task</div>
+        <div style="margin-top: 16px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto; padding: 12px; background-color: rgba(0,0,0,0.05); border-radius: 6px;">
+          <div style="color: #333; font-size: 14px; line-height: 1.5;">
+            This task demonstrates the strategic use of variable stiffness: <strong>high soft mode</strong> is used for initial contact and hole alignment, allowing the key to find the correct orientation without applying excessive force. Once aligned, <strong>lock mode</strong> is engaged for effective torque transmission during rotation and pulling out, providing the necessary rigidity for the rotational motion and extraction phases.
+          </div>
+        </div>
       </div>
 
   - title: Robustness Evaluation
     text: |
-      #### Drawer Manipulation
-      <div style="margin-top: 24px;">
-        <video
-          src="robustness_drawer_Q.mp4"
-          controls
-          loop
-          muted
-          style="width: 100%; max-width: 600px;"
+      <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px;">
+        <div style="flex: 1; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Drawer Manipulation</div>
+          <video
+            src="robustness_drawer_Q.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 350px;"
           />
-        <div class="uk-text-meta">Robust drawer pulling task</div>
-      </div>
-
-      #### Dish Manipulation
-      <div class="uk-overflow-auto">
-        <table class="uk-table uk-table-small uk-text-small uk-table-divider">
-          <tbody>
-            <tr>
-              <td>
-                <video
-                  src="robustness_dish_1_Q.mp4"
-                  controls
-                  loop
-                  muted
-                  style="width: 100%; max-width: 600px;"
-                  />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <video
-                  src="robustness_dish_2_Q.mp4"
-                  controls
-                  loop
-                  muted
-                  style="width: 100%; max-width: 600px;"
-                  />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <video
-                  src="robustness_dish_3_Q.mp4"
-                  controls
-                  loop
-                  muted
-                  style="width: 100%; max-width: 600px;"
-                  />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+          <div class="uk-text-meta">Robust drawer pulling task</div>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Dish Manipulation 1</div>
+          <video
+            src="robustness_dish_1_Q.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 350px;"
+          />
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Dish Manipulation 2</div>
+          <video
+            src="robustness_dish_2_Q.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 350px;"
+          />
+        </div>
       </div>
