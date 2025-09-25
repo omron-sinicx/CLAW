@@ -251,36 +251,52 @@ body:
 
   - title: Robustness Evaluation
     text: |
-      <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px;">
-        <div style="flex: 1; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Drawer Manipulation</div>
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Drawer Manipulation with Perturbation</div>
           <video
             src="robustness_drawer_Q.mp4"
             controls
             loop
             muted
-            style="width: 100%; max-width: 350px;"
+            style="width: 100%; max-width: 600px;"
           />
-          <div class="uk-text-meta">Robust drawer pulling task</div>
+          <div class="uk-text-meta">Robust drawer pulling task with external perturbations</div>
         </div>
-        <div style="flex: 1; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Dish Manipulation 1</div>
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Tilted Dish with Metal Screw</div>
           <video
             src="robustness_dish_1_Q.mp4"
             controls
             loop
             muted
-            style="width: 100%; max-width: 350px;"
+            style="width: 100%; max-width: 600px;"
           />
+          <div class="uk-text-meta">Dish manipulation with tilted surface and metal screw obstacle</div>
         </div>
-        <div style="flex: 1; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Dish Manipulation 2</div>
+      </div>
+
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Dish Manipulation with Perturbation</div>
           <video
             src="robustness_dish_2_Q.mp4"
             controls
             loop
             muted
-            style="width: 100%; max-width: 350px;"
+            style="width: 100%; max-width: 600px;"
           />
+          <div class="uk-text-meta">Dish handling with external perturbations during manipulation</div>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
+          <div style="font-weight: bold; margin-bottom: 6px;">Rotated Initial Position</div>
+          <video
+            src="robust_initial.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 600px;"
+          />
+          <div class="uk-text-meta">Robustness test with rotated starting configuration</div>
         </div>
       </div>
