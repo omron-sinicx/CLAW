@@ -111,3 +111,15 @@ body {
 .uk-container .uk-section {
   background-color: #ffffff;
 }
+
+// Responsive teleop images
+@media (max-width: 768px) {
+  .teleop-container {
+    flex-direction: column !important;
+  }
+  .teleop-left,
+  .teleop-right {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+}

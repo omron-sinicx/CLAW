@@ -18,12 +18,12 @@ class Template extends React.Component {
     return (
       <div>
         <Helmet>
-          <title>{data.meta.title}</title>
-          <meta name="description" content={data.meta.description} />
-          <meta property="og:title" content={data.meta.title} />
-          <meta property="og:description" content={data.meta.description} />
-          <meta property="og:image" content={data.meta.image} />
-          <meta property="og:url" content={data.meta.url} />
+          <title>{data.title}</title>
+          <meta name="description" content={data.description} />
+          <meta property="og:title" content={data.title} />
+          <meta property="og:description" content={data.description} />
+          <meta property="og:image" content={data.image} />
+          <meta property="og:url" content={data.url} />
           <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
         <Header
