@@ -120,7 +120,33 @@ body:
       </div>
 
 
-      The interface features a lever mechanism for intuitive stiffness selection, allowing operators to switch between different compliance modes during teleoperation. This human-in-the-loop approach enables more natural and safe interaction with the environment while leveraging the variable stiffness capabilities of the CLAW end-effector.
+      The interface features a lever mechanism for intuitive stiffness selection, allowing operators to switch between different compliance modes during teleoperation.
+
+
+      <div style="display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
+        <div style="flex: 0 0 auto; width: 340px; max-width: 90vw;">
+          <div style="font-weight: bold; margin-bottom: 6px; text-align: center;">Gravity Compensation</div>
+          <video
+            src="gravity_comp.mov"
+            controls
+            loop
+            muted
+            style="width: 100%; object-fit: contain;"
+          />
+          <div class="uk-text-meta" style="text-align: center; margin-top: 6px;">Demonstration of gravity compensation in the teleoperation system</div>
+        </div>
+        <div style="flex: 0 0 auto; width: 240px; max-width: 90vw;">
+          <div style="font-weight: bold; margin-bottom: 6px; text-align: center;">Haptic Feedback</div>
+          <video
+            src="feedback.mov"
+            controls
+            loop
+            muted
+            style="width: 100%; object-fit: contain;"
+          />
+          <div class="uk-text-meta" style="text-align: center; margin-top: 6px;">Haptic feedback demonstration showing force transmission to the operator</div>
+        </div>
+      </div>
 
   - title: Real-world Manipulation Tasks
     text: |
