@@ -104,6 +104,122 @@ body:
         </div>
       </div>
 
+  - title: CLAW Cost Breakdown
+    text: |
+      CLAW is designed to be cost-effective while maintaining high performance. The following table shows the detailed cost breakdown of all components required to build the CLAW system:
+
+      <div class="uk-text-center">
+        <table style="margin: 0 auto; border-collapse: collapse; font-size: 14px; max-width: 600px;">
+          <caption style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">CLAW Cost Breakdown (USD)</caption>
+          <thead>
+            <tr style="border-bottom: 2px solid #333;">
+              <th style="padding: 8px 12px; text-align: left; font-weight: bold;">Item</th>
+              <th style="padding: 8px 12px; text-align: right; font-weight: bold;">Unit Price (USD)</th>
+              <th style="padding: 8px 12px; text-align: right; font-weight: bold;">Quantity</th>
+              <th style="padding: 8px 12px; text-align: right; font-weight: bold;">Total (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">XC330-T288-T</td>
+              <td style="padding: 6px 12px; text-align: right;">$70.64</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$70.64</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">XM430-W210-R</td>
+              <td style="padding: 6px 12px; text-align: right;">$199.91</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$199.91</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">U2D2</td>
+              <td style="padding: 6px 12px; text-align: right;">$44.18</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$44.18</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">hub</td>
+              <td style="padding: 6px 12px; text-align: right;">$26.52</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$26.52</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">SSEB6-55 (Slider)</td>
+              <td style="padding: 6px 12px; text-align: right;">$49.70</td>
+              <td style="padding: 6px 12px; text-align: right;">2</td>
+              <td style="padding: 6px 12px; text-align: right;">$99.40</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">bearing</td>
+              <td style="padding: 6px 12px; text-align: right;">$2.79</td>
+              <td style="padding: 6px 12px; text-align: right;">2</td>
+              <td style="padding: 6px 12px; text-align: right;">$5.58</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">spring</td>
+              <td style="padding: 6px 12px; text-align: right;">$2.09</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$2.09</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">cable</td>
+              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">sheath</td>
+              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">shaft</td>
+              <td style="padding: 6px 12px; text-align: right;">$5.30</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$5.30</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">bearing</td>
+              <td style="padding: 6px 12px; text-align: right;">$1.98</td>
+              <td style="padding: 6px 12px; text-align: right;">8</td>
+              <td style="padding: 6px 12px; text-align: right;">$15.86</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">spring</td>
+              <td style="padding: 6px 12px; text-align: right;">$2.09</td>
+              <td style="padding: 6px 12px; text-align: right;">2</td>
+              <td style="padding: 6px 12px; text-align: right;">$4.19</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">Convex scale</td>
+              <td style="padding: 6px 12px; text-align: right;">$6.98</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$6.98</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #ddd;">
+              <td style="padding: 6px 12px;">Screws</td>
+              <td style="padding: 6px 12px; text-align: right;">$34.90</td>
+              <td style="padding: 6px 12px; text-align: right;">1</td>
+              <td style="padding: 6px 12px; text-align: right;">$34.90</td>
+            </tr>
+            <tr style="border-bottom: 2px solid #333;">
+              <td style="padding: 6px 12px;">3D Printing</td>
+              <td style="padding: 6px 12px; text-align: right;">--</td>
+              <td style="padding: 6px 12px; text-align: right;">--</td>
+              <td style="padding: 6px 12px; text-align: right;">$20.00</td>
+            </tr>
+            <tr>
+              <td colspan="3" style="padding: 8px 12px; text-align: right; font-weight: bold;">Grand Total</td>
+              <td style="padding: 8px 12px; text-align: right; font-weight: bold;">$538.35</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      The total cost of approximately $538 makes CLAW an affordable solution for research and educational applications, while the modular design allows for easy customization and maintenance.
+
   - title: Teleoperation Interface
     text: |
       We open source a bilateral teleoperation interface designed for position-based robots with force sensors at the end effector. The system provides intuitive haptic feedback for safer and more effective robot control, particularly beneficial for contact-rich manipulation tasks.
