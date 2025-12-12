@@ -1,8 +1,8 @@
 theme: default # default || dark
 organization: # OMRON SINIC X
 twitter: #'@omron_sinicx'
-title: 'Safe Robot Learning in Contact-Rich Manipulation via A Low-Cost Soft Gripper and Haptic Feedback Teleoperation'
-conference: CoRL 2025 - Workshop on Open-Source Hardware in the Era of Robot Learning
+title: 'A Soft Wrist with Anisotropic and Selective Stiffness for Robust Robot Learning in Contact-rich Manipulation'
+conference: # CoRL 2025 - Workshop on Open-Source Hardware in the Era of Robot Learning
 resources:
   paper: # To be added when published
   poster:
