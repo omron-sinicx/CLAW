@@ -238,12 +238,11 @@ body:
 
       The interface features a lever mechanism for intuitive stiffness selection, allowing operators to switch between different compliance modes during teleoperation.
 
-
       <div style="display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
         <div style="flex: 0 0 auto; width: 340px; max-width: 90vw;">
           <div style="font-weight: bold; margin-bottom: 6px; text-align: center;">Gravity Compensation</div>
           <video
-            src="gravity_comp.mov"
+            src="gravity_comp_web.mp4"
             controls
             loop
             muted
@@ -254,7 +253,7 @@ body:
         <div style="flex: 0 0 auto; width: 240px; max-width: 90vw;">
           <div style="font-weight: bold; margin-bottom: 6px; text-align: center;">Haptic Feedback</div>
           <video
-            src="feedback.mov"
+            src="feedback_web.mp4"
             controls
             loop
             muted
@@ -440,5 +439,25 @@ body:
             style="width: 100%; max-width: 600px;"
           />
           <div class="uk-text-meta">Robustness test with rotated starting configuration</div>
+        </div>
+      </div>
+
+  - title: Validation on a different robot arm
+    text: |
+
+      <div style="text-align: center;">
+        <strong>
+          <a href="https://global.agilex.ai/products/piper" target="_blank" rel="noopener noreferrer">
+            AGILE X PiPER
+          </a>
+        </strong>
+        <div style="margin-top: 14px;">
+          <video
+            src="piper.mp4"
+            controls
+            loop
+            muted
+            style="width: 100%; max-width: 720px;"
+          />
         </div>
       </div>
