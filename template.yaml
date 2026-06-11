@@ -36,8 +36,10 @@ authors:
 contact_ids: ['github', 'omron', 2] #=> github issues, contact@sinicx.com, 2nd author
 affiliations:
   - OMRON SINIC X Corporation
-# meta:
-#   - 'Authors and affiliations will be revealed after acceptance.'
+meta:
+  - '* Equal Contribution'
+extra:
+  - '+ work done as an intern at OMRON SINIC X.'
 # bibtex: >
 #   # Workshop version
 
