@@ -15,14 +15,27 @@ description: A safe and cost-effective robot learning system that combines a nov
 # image: https://omron-sinicx.github.io/${your-repository-name}/teaser.png
 # url: https://omron-sinicx.github.io/${your-repository-name}
 # speakerdeck:
-# authors:
-#   - name: # TBD
-#     affiliation: [] # TBD
-#     url: # To be revealed after acceptance
-#     position:
-# contact_ids: ['github', 'omron'] #=> github issues, contact@sinicx.com
+authors:
+  - name: Steven Oh*+
+    affiliation: [1]
+    position: intern
+  - name: Tomoya Takahashi*+
+    affiliation: [1]
+    position: research engineer
+  - name: Cristian C. Beltran-Hernandez
+    affiliation: [1]
+    position: senior researcher
+    url: https://cristianbehe.me/
+  - name: Yuki Kuroda
+    affiliation: [1]
+    position: project research
+  - name: Masashi Hamaya
+    affiliation: [1]
+    position: principal investigator
+    url: https://sites.google.com/view/masashihamaya/home
+contact_ids: ['github', 'omron', 2] #=> github issues, contact@sinicx.com, 2nd author
 affiliations:
-  # - Anonymous Institution
+  - OMRON SINIC X Corporation
 # meta:
 #   - 'Authors and affiliations will be revealed after acceptance.'
 # bibtex: >
