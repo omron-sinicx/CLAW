@@ -1,28 +1,17 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 export default class Authors extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     if (!this.props.authors || !this.props.affiliations) {
       return null;
     }
-    const columnMaxLen =
-      this.props.authors.length > 4 ? 3 : this.props.authors.length;
-    const authorClass = `uk-width-1-${columnMaxLen} uk-width-1-${this.props.authors.length}@m`;
     const affiliationClass = `uk-width-1-${this.props.affiliations.length} uk-margin-small-top`;
     return (
       <div>
-        <div
-          className="uk-text-primary uk-text-center uk-flex-center uk-grid-collapse"
-          data-uk-grid
-        >
+        <div className="uk-text-primary uk-text-center claw-authors-row">
           {this.props.authors.map((author, idx) => {
             return (
-              <span className={authorClass} key={'author-' + idx}>
+              <span className="claw-author-name" key={'author-' + idx}>
                 <a target="_blank" className="uk-link-toggle" href={author.url}>
                   {author.name}
                 </a>

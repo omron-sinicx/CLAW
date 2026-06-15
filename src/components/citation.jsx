@@ -40,7 +40,7 @@ export default class Citation extends React.Component {
   render() {
     return (
       <div className="uk-section">
-        <h2 className="uk-heading-line uk-text-center">Citation</h2>
+        <h2 className="uk-heading-line uk-text-center">BibTeX</h2>
         <pre
           className="uk-padding-small"
           style={{

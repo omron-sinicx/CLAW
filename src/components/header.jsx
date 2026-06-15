@@ -50,23 +50,38 @@ class ResourceBtn extends React.Component {
     }
   }
   render() {
-    if (!this.props.url) return null;
-    const aClass = `uk-button uk-button-text uk-padding-remove ${this.props.rid === 0 ? 'uk-first-column' : 'uk-margin-medium-left@s uk-margin-small-left'}`;
-    const sClass = 'uk-margin-small-left uk-margin-small-right uk-text-bold';
+    const sClass = 'uk-margin-small-left uk-text-bold';
     const FaIcon = this.icons[this.props.title];
     const iTitle =
       this.props.title == 'huggingface' && this.state.isMobile
         ? ' hf '
         : this.props.title;
-    return (
+    const content = (
       <>
-        <a className={aClass} href={this.props.url} target="_blank">
-          <FaIcon size="2em" />
-          <span className={sClass} style={{ fontFamily: 'Poppins' }}>
-            {iTitle}
-          </span>
-        </a>
+        <FaIcon size="1.45em" />
+        <span className={sClass} style={{ fontFamily: 'Poppins' }}>
+          {iTitle}
+        </span>
       </>
+    );
+
+    if (!this.props.url) {
+      return (
+        <span className="claw-resource-button claw-resource-button-disabled">
+          {content}
+        </span>
+      );
+    }
+
+    return (
+      <a
+        className="claw-resource-button"
+        href={this.props.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {content}
+      </a>
     );
   }
 }
@@ -110,47 +125,54 @@ export default class Header extends React.Component {
           backgroundColor: '#030706',
         }
       : null;
-    const backgroundStyle = this.state.isMobile
-      ? null
-      : {
-          backgroundImage: `url(${this.props.header.bg_curve})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'right',
-          margin: '20px 10px 20px 0px',
-        };
+    const backgroundStyle =
+      this.state.isMobile || !this.props.header?.bg_curve
+        ? null
+        : {
+            backgroundImage: `url(${this.props.header.bg_curve})`,
+            backgroundSize: 'auto 110%',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'right center',
+            margin: '0',
+          };
     return (
       <>
         <div
-          className="uk-cover-container uk-background-secondary"
+          className="uk-cover-container uk-background-secondary claw-hero"
           style={baseStyle}
         >
           <div style={backgroundStyle}>
             <div className="uk-container uk-container-small uk-section">
               <div className="uk-text-center uk-text-bold">
                 <p className={titleClass}>{this.props.title}</p>
-                <span
-                  className="uk-label uk-label-primary uk-text-center uk-margin-small-bottom"
-                  style={{ fontFamily: 'Poppins' }}
-                >
-                  {this.props.conference}
-                </span>
+                {this.props.conference && (
+                  <span
+                    className="uk-label uk-label-primary uk-text-center uk-margin-small-bottom claw-conference-label"
+                    style={{ fontFamily: 'Poppins' }}
+                  >
+                    {this.props.conference}
+                  </span>
+                )}
               </div>
               <Authors
                 authors={this.props.authors}
                 affiliations={this.props.affiliations}
                 meta={this.props.meta}
               />
-              {/* <div className="uk-text-center uk-margin-top">
-                <a href="https://www.omron.com/sinicx" target="_blank">
+              <div className="uk-text-center claw-header-logo">
+                <a
+                  href="https://www.omron.com/sinicx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <CorporateLogo
-                    size="lg"
+                    size="xxl"
                     inverted={this.props.theme == 'dark' ? true : false}
                   />
                 </a>
-              </div> */}
-              <div className="uk-flex uk-flex-center uk-margin-top">
-                {Object.keys(this.props.resources).map((key) => (
+              </div>
+              <div className="claw-resource-row">
+                {['paper'].map((key) => (
                   <ResourceBtn
                     url={this.props.resources[key]}
                     title={key}

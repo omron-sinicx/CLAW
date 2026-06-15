@@ -28,7 +28,7 @@ export default class Overview extends React.Component {
             <span className="uk-text-secondary">{this.props.description}</span>
           </p>
         )}
-        <h2 className="uk-heading-line uk-text-center">Overview</h2>
+        <h2 className="uk-heading-line uk-text-center">Abstract</h2>
         <div
           dangerouslySetInnerHTML={{
             __html: marked.parse(this.props.overview),

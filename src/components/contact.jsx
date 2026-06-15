@@ -4,13 +4,15 @@ import { FaGithub } from 'react-icons/fa6';
 import { MdAlternateEmail, MdContactMail } from 'react-icons/md';
 
 class ContactCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     if (!this.props.author) {
       return null;
     }
+    const displayName =
+      this.props.author.contact_name || this.props.author.name;
+    const position = this.props.author.position
+      ? this.props.author.position.toUpperCase()
+      : '';
     return (
       <div className="uk-width-1-2@s uk-flex">
         <div className="uk-width-auto uk-margin-right">
@@ -22,16 +24,21 @@ class ContactCard extends React.Component {
               target="_blank"
               className="uk-link-reset"
               href={this.props.author.url}
+              rel="noopener noreferrer"
             >
-              {this.props.author.name}
+              {displayName}
             </a>
           </span>
           <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
             <li className="uk-visible@m">
-              <a href="#">{this.props.author.position}</a>
+              <a href="#">{position}</a>
             </li>
             <li>
-              <a href="https://www.omron.com/sinicx/" target="_blank">
+              <a
+                href="https://www.omron.com/sinicx/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 OMRON SINIC X
               </a>
             </li>

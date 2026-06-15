@@ -1,24 +1,22 @@
 theme: default # default || dark
-organization: # OMRON SINIC X
-twitter: #'@omron_sinicx'
-title: 'A Soft Wrist with Anisotropic and Selective Stiffness for Robust Robot Learning in Contact-rich Manipulation'
-conference: # CoRL 2025 - Workshop on Open-Source Hardware in the Era of Robot Learning
+organization: OMRON SINIC X
+twitter: '@omron_sinicx'
+title: 'CLAW: A Flexible Wrist with Anisotropic and Switchable Stiffness for Contact-Rich Manipulation'
+conference: RAL 2026
 resources:
-  paper: # To be added when published
+  paper: https://arxiv.org/abs/2602.14434
   poster:
-  code: # Design will be open after acceptance
-  video: # Add demo video link
+  code:
+  video:
   blog:
   demo:
   huggingface:
-description: A safe and cost-effective robot learning system that combines a novel soft end-effector (CLAW) with an intuitive haptic teleoperation interface for contact-rich manipulation tasks.
-# image: https://omron-sinicx.github.io/${your-repository-name}/teaser.png
-# url: https://omron-sinicx.github.io/${your-repository-name}
-# speakerdeck:
+description: CLAW is a lightweight, low-cost flexible wrist that improves learned contact-rich manipulation through passive 6-DoF compliance and switchable anisotropic stiffness.
 authors:
-  - name: Steven Oh*+
+  - name: Steven Oh*
     affiliation: [1]
     position: intern
+    url: https://stevenoh2003.github.io
   - name: Tomoya Takahashi*
     affiliation: [1]
     position: research engineer
@@ -32,447 +30,168 @@ authors:
   - name: Masashi Hamaya
     affiliation: [1]
     position: principal investigator
+    contact_name: Hamaya Masashi
     url: https://sites.google.com/view/masashihamaya/home
-contact_ids: ['github', 'omron', 2] #=> github issues, contact@sinicx.com, 2nd author
+contact_ids: [5, 'omron']
 affiliations:
   - OMRON SINIC X Corporation
 meta:
   - '* Equal Contribution'
-extra:
-  - '+ work done as an intern at OMRON SINIC X.'
-# bibtex: >
-#   # Workshop version
-
-#   @inproceedings{anonymous2025claw,
-#     title={Safe Robot Learning in Contact-Rich Manipulation via A Low-Cost Soft Gripper and Haptic Feedback Teleoperation},
-#     author={Anonymous Authors},
-#     booktitle={CoRL2025 Workshop on Open-Source Hardware in the Era of Robot Learning},
-#     year={2025}
-#   }
+bibtex: |
+  @misc{oh2026softwristanisotropicselectable,
+        title={A Soft Wrist with Anisotropic and Selectable Stiffness for Robust Robot Learning in Contact-rich Manipulation},
+        author={Steven Oh and Tomoya Takahashi and Cristian C. Beltran-Hernandez and Yuki Kuroda and Masashi Hamaya},
+        year={2026},
+        eprint={2602.14434},
+        archivePrefix={arXiv},
+        primaryClass={cs.RO},
+        url={https://arxiv.org/abs/2602.14434},
+  }
 header:
-  bg_curve:
-    # sinic_curve.png
-    #  bg_image: https://github.com/omron-sinicx/swarm-body/raw/main/images/teaser.jpg
-
+  bg_curve: sinic_curve.png
 teaser: teaser_2.png
 overview: |
-  Safety is a critical challenge in robot learning for contact-rich manipulation tasks, where unexpected collisions can cause damage and hinder learning. This study introduces a low-cost robot learning system that combines a novel soft end-effector, **CLAW** (**C**ompliant **L**eaf‑spring in **A**nisotropic soft **W**rist), with an intuitive haptic teleoperation interface for position-controlled robots.
-
-  CLAW addresses key limitations of existing soft end-effectors by providing large 6-degree-of-freedom deformation, adjustable anisotropic stiffness, and lightweight (330g) construction at a low cost (~$550). Using an imitation learning approach, our system achieved a **76% success rate** in benchmark peg-insertion tasks, significantly outperforming both fin-ray-type (43%) and rigid grippers (36%).
-
-  The system integrates both fail-soft capabilities (enabling robots to safely withstand collisions) and fault-avoidance features (providing haptic feedback for safer teleoperation).
-
+  Contact-rich manipulation tasks in unstructured environments pose significant robustness challenges for robot learning, where unexpected collisions can cause damage and hinder policy acquisition. Existing flexible end-effectors face fundamental limitations: they either provide a limited deformation range, lack directional stiffness control, or require complex actuation systems that compromise practicality. This study introduces CLAW (Compliant Leaf-spring Anisotropic flexible Wrist), a novel flexible wrist mechanism that addresses these limitations through a simple yet effective design using two orthogonal leaf springs and rotary joints with a locking mechanism. CLAW provides large 6-degree-of-freedom deformation (40mm lateral, 20mm vertical), and mode-switchable anisotropic stiffness across three discrete locking modes, while maintaining lightweight construction (330g) at low cost (~$550). Experimental evaluations using imitation learning demonstrate that CLAW achieves 76% success rate in benchmark peg-insertion tasks, outperforming both the Fin Ray gripper (43%) and rigid gripper alternatives (36%). CLAW successfully handles diverse contact-rich scenarios, including precision assembly with tight tolerances and delicate object manipulation, demonstrating its potential to enable more robust execution of contact-rich manipulation under learned policies.
 body:
-  - title: System Overview
-    text: |
-      The proposed system integrates three main components to enable safe robot learning for contact-rich manipulation:
+  - type: hardware
+    title: CLAW
+    title_html: CLAW (<strong>C</strong>ompliant <strong>L</strong>eaf-spring <strong>A</strong>nisotropic flexible <strong>W</strong>rist)
+    text: A lightweight, low-cost flexible wrist for contact-rich manipulation. CLAW uses two orthogonal leaf springs and a compact locking mechanism to absorb unexpected contact while preserving useful task forces.
+    stats:
+      - value: 6-DoF
+        label: compliant deformation
+      - value: 330 g
+        label: lightweight wrist
+      - value: ~$538
+        label: low-cost BOM
+    specs:
+      - value: 155 x 150 x 85 mm
+        label: size
+      - value: 7.5 N
+        label: max grip force
+      - value: +/-40 mm
+        label: X/Y deformation
+      - value: +20 / -10 mm
+        label: Z deformation
+      - value: +/-15 deg
+        label: pitch / roll
+    images:
+      - src: method.png
+        caption: CLAW flexible wrist.
+    bom:
+      total: $538.35
+      items:
+        - item: XC330-T288-T
+          unit: $70.64
+          quantity: 1
+          total: $70.64
+        - item: XM430-W210-R
+          unit: $199.91
+          quantity: 1
+          total: $199.91
+        - item: U2D2
+          unit: $44.18
+          quantity: 1
+          total: $44.18
+        - item: Hub
+          unit: $26.52
+          quantity: 1
+          total: $26.52
+        - item: SSEB6-55 slider
+          unit: $49.70
+          quantity: 2
+          total: $99.40
+        - item: Bearings
+          unit: mixed
+          quantity: 10
+          total: $21.44
+        - item: Springs
+          unit: $2.09
+          quantity: 3
+          total: $6.28
+        - item: Cable and sheath
+          unit: $1.40
+          quantity: 2
+          total: $2.80
+        - item: Shaft
+          unit: $5.30
+          quantity: 1
+          total: $5.30
+        - item: Convex scale
+          unit: $6.98
+          quantity: 1
+          total: $6.98
+        - item: Screws
+          unit: $34.90
+          quantity: 1 set
+          total: $34.90
+        - item: 3D printing
+          unit: --
+          quantity: --
+          total: $20.00
 
-      <div class="uk-text-center">
-        <img src="method.png" alt="CLAW System Overview" class="uk-align-center uk-responsive-width" />
-        <div class="uk-text-meta">Safe robot learning system overview: (a) novel soft end-effector CLAW, (b) haptic-feedback teleoperation interface, and (c) variety of contact-rich tasks</div>
-      </div>
+  - type: videos
+    title: Real-world Manipulation
+    text: Learned trajectory, played at 1x speed.
+    videos:
+      - src: 5um_peg_right_Q.mp4
+        title: Horizontal peg insertion (50 micrometer tolerance)
+      - src: vertical_peg_success_Q.mp4
+        title: Vertical peg insertion (50 micrometer tolerance)
+      - src: half_drag_Q.mp4
+        title: Rail dragging
+      - src: smiley face_Q.mp4
+        title: Drawing
+      - src: heavypeg.mp4
+        title: Heavy peg insertion (50 micrometer tolerance)
+      - src: glasstube.mp4
+        title: Glass tube insertion
 
-      1. **CLAW Soft End-Effector**: A compliant leaf-spring design providing 6-DoF deformation and anisotropic stiffness
-      2. **Haptic Teleoperation Interface**: Position-controlled robot with force feedback for intuitive demonstrations  
-      3. **Imitation Learning**: Action Chunking Transformer (ACT) method for policy learning from demonstrations
+  - type: videos
+    title: Selective Variable Stiffness
+    text: Selectable stiffness in policy leads to a higher success rate. Learned trajectory, played at 1x speed.
+    videos:
+      - src: opening_door.mp4
+        title: Door opening
+        caption: Push door handle (stiff) -> door handle release (free).
+      - src: var_stiffness_key_Q.mp4
+        title: Key insertion
+        caption: Insert key (free) -> rotate and pull out (stiff).
 
-  - title: CLAW Design and Performance
-    text: |
-      CLAW (**C**ompliant **L**eaf‑spring in **A**nisotropic soft **W**rist) is designed to meet four key requirements:
+  - type: videos
+    title: CLAW enables more robust policies
+    text: CLAW remains effective under perturbations and changed starting conditions. Learned trajectory, played at 1x speed.
+    videos:
+      - src: robustness_drawer_Q.mp4
+        title: Drawer perturbation (2x)
+        caption: External disturbance during pulling.
+      - src: robustness_dish_2_Q.mp4
+        title: Dish perturbation
+        caption: Contact-rich handling with disturbance.
+      - src: robust_initial.mp4
+        title: Rotated start
+        caption: Generalization from changed initial pose.
 
-      - **Large and multi-directional deformation**: 6-DoF compliance to absorb unexpected collisions
-      - **Anisotropic and adjustable stiffness**: Direction-dependent stiffness with three lock modes
-      - **Lightweight construction**: Only 330g total mass 
-      - **Low cost and simple implementation**: ~$550 using readily available components
+  - type: videos
+    title: Exhibition at CoRL 2025
+    text: Demonstration on a low-cost AgileX PiPER arm.
+    videos:
+      - src: piper.mp4
+        title: AgileX PiPER
+        caption: On a shaky table, hardware compliance helps with insertion in noisy environments.
 
-      #### Technical Specifications
-      <div style="display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; align-items: center; margin: 16px 0;">
-        <div style="flex: 1; min-width: 200px;">
-          <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
-            <tr><td style="font-weight: bold; padding: 4px 8px; border-bottom: 1px solid #ddd;">Weight</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">330 g</td></tr>
-            <tr><td style="font-weight: bold; padding: 4px 8px; border-bottom: 1px solid #ddd;">Size (W×H×L)</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">155×150×85 mm</td></tr>
-            <tr><td style="font-weight: bold; padding: 4px 8px;">Max Grip Force</td><td style="padding: 4px 8px;">7.5 N</td></tr>
-          </table>
-        </div>
-        <div style="flex: 1; min-width: 200px;">
-          <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
-            <tr><td colspan="2" style="font-weight: bold; padding: 4px 8px; border-bottom: 1px solid #ddd; text-align: center;">Deformation Range</td></tr>
-            <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">X/Y-axis</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">±40 mm</td></tr>
-            <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">Z-axis</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">+20/-10 mm</td></tr>
-            <tr><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">Pitch/Roll</td><td style="padding: 4px 8px; border-bottom: 1px solid #ddd;">±15°</td></tr>
-            <tr><td style="padding: 4px 8px;">Yaw</td><td style="padding: 4px 8px;">±30°/±45°</td></tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="uk-text-center">
-        <div style="margin-top: 24px;">
-          <img src="deformation.png" alt="CLAW Deformation" class="uk-align-center uk-responsive-width" />
-          <div class="uk-text-meta">CLAW deformation capabilities in multiple directions</div>
-        </div>
-      </div>
-
-      <div class="uk-text-center">
-        <div style="margin-top: 24px;">
-          <img src="lock.png" alt="CLAW Locking Modes" class="uk-align-center uk-responsive-width" style="width: 50%; max-width: 50%;" />
-          <div class="uk-text-meta">Three locking modes create selective variable stiffness: (a) Free mode allows full compliance, (b) Half lock mode provides anistropic stiffness, (c) Full lock mode maximizes rigidity for force transmission</div>
-        </div>
-      </div>
-
-  - title: CLAW Cost Breakdown
-    text: |
-      CLAW is designed to be cost-effective while maintaining high performance. The following table shows the detailed cost breakdown of all components required to build the CLAW system:
-
-      <div class="uk-text-center">
-        <table style="margin: 0 auto; border-collapse: collapse; font-size: 14px; max-width: 600px;">
-          <caption style="font-weight: bold; margin-bottom: 12px; font-size: 16px;">CLAW Cost Breakdown (USD)</caption>
-          <thead>
-            <tr style="border-bottom: 2px solid #333;">
-              <th style="padding: 8px 12px; text-align: left; font-weight: bold;">Item</th>
-              <th style="padding: 8px 12px; text-align: right; font-weight: bold;">Unit Price (USD)</th>
-              <th style="padding: 8px 12px; text-align: right; font-weight: bold;">Quantity</th>
-              <th style="padding: 8px 12px; text-align: right; font-weight: bold;">Total (USD)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">XC330-T288-T</td>
-              <td style="padding: 6px 12px; text-align: right;">$70.64</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$70.64</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">XM430-W210-R</td>
-              <td style="padding: 6px 12px; text-align: right;">$199.91</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$199.91</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">U2D2</td>
-              <td style="padding: 6px 12px; text-align: right;">$44.18</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$44.18</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">hub</td>
-              <td style="padding: 6px 12px; text-align: right;">$26.52</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$26.52</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">SSEB6-55 (Slider)</td>
-              <td style="padding: 6px 12px; text-align: right;">$49.70</td>
-              <td style="padding: 6px 12px; text-align: right;">2</td>
-              <td style="padding: 6px 12px; text-align: right;">$99.40</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">bearing</td>
-              <td style="padding: 6px 12px; text-align: right;">$2.79</td>
-              <td style="padding: 6px 12px; text-align: right;">2</td>
-              <td style="padding: 6px 12px; text-align: right;">$5.58</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">spring</td>
-              <td style="padding: 6px 12px; text-align: right;">$2.09</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$2.09</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">cable</td>
-              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">sheath</td>
-              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$1.40</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">shaft</td>
-              <td style="padding: 6px 12px; text-align: right;">$5.30</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$5.30</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">bearing</td>
-              <td style="padding: 6px 12px; text-align: right;">$1.98</td>
-              <td style="padding: 6px 12px; text-align: right;">8</td>
-              <td style="padding: 6px 12px; text-align: right;">$15.86</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">spring</td>
-              <td style="padding: 6px 12px; text-align: right;">$2.09</td>
-              <td style="padding: 6px 12px; text-align: right;">2</td>
-              <td style="padding: 6px 12px; text-align: right;">$4.19</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">Convex scale</td>
-              <td style="padding: 6px 12px; text-align: right;">$6.98</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$6.98</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #ddd;">
-              <td style="padding: 6px 12px;">Screws</td>
-              <td style="padding: 6px 12px; text-align: right;">$34.90</td>
-              <td style="padding: 6px 12px; text-align: right;">1</td>
-              <td style="padding: 6px 12px; text-align: right;">$34.90</td>
-            </tr>
-            <tr style="border-bottom: 2px solid #333;">
-              <td style="padding: 6px 12px;">3D Printing</td>
-              <td style="padding: 6px 12px; text-align: right;">--</td>
-              <td style="padding: 6px 12px; text-align: right;">--</td>
-              <td style="padding: 6px 12px; text-align: right;">$20.00</td>
-            </tr>
-            <tr>
-              <td colspan="3" style="padding: 8px 12px; text-align: right; font-weight: bold;">Grand Total</td>
-              <td style="padding: 8px 12px; text-align: right; font-weight: bold;">$538.35</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      The total cost of approximately $538 makes CLAW an affordable solution for research and educational applications, while the modular design allows for easy customization and maintenance.
-
-  - title: Teleoperation Interface
-    text: |
-      We open source a bilateral teleoperation interface designed for position-based robots with force sensors at the end effector. The system provides intuitive haptic feedback for safer and more effective robot control, particularly beneficial for contact-rich manipulation tasks.
-
-      <div class="teleop-container" style="display: flex; gap: 24px; align-items: center; margin-bottom: 16px;">
-        <div class="teleop-left" style="flex: 0 0 70%; text-align: center; display: flex; flex-direction: column; justify-content: center;">
-          <img src="teleop.png" alt="Teleoperation System Diagram" style="width: 100%; max-width: 100%;" />
-          <div class="uk-text-meta">Bilateral teleoperation system architecture with force feedback and gravity compensation</div>
-        </div>
-        <div class="teleop-right" style="flex: 0 0 30%; text-align: center; display: flex; flex-direction: column; justify-content: center;">
-          <img src="teleop_real.png" alt="Physical Teleoperation Setup" style="width: 100%; max-width: 100%;" />
-          <div class="uk-text-meta">Physical setup showing leader device with lever mechanism for stiffness selection and follower robot with CLAW</div>
-        </div>
-      </div>
-
-
-      The interface features a lever mechanism for intuitive stiffness selection, allowing operators to switch between different compliance modes during teleoperation.
-
-      <div style="display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
-        <div style="flex: 0 0 auto; width: 340px; max-width: 90vw;">
-          <div style="font-weight: bold; margin-bottom: 6px; text-align: center;">Gravity Compensation</div>
-          <video
-            src="gravity_comp_web.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; object-fit: contain;"
-          />
-          <div class="uk-text-meta" style="text-align: center; margin-top: 6px;">Demonstration of gravity compensation in the teleoperation system</div>
-        </div>
-        <div style="flex: 0 0 auto; width: 240px; max-width: 90vw;">
-          <div style="font-weight: bold; margin-bottom: 6px; text-align: center;">Haptic Feedback</div>
-          <video
-            src="feedback_web.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; object-fit: contain;"
-          />
-          <div class="uk-text-meta" style="text-align: center; margin-top: 6px;">Haptic feedback demonstration showing force transmission to the operator</div>
-        </div>
-      </div>
-
-  - title: Real-world Manipulation Tasks
-    text: |
-      Beyond benchmark evaluation, our system successfully performed challenging real-world tasks:
-
-      **Learned trajectory via ACT played at 1X**
-
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Horizontal Orientation Peg Insertion (50μm)</div>
-          <video
-            src="5um_peg_right_Q.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">50μm clearance peg insertion task</div>
-        </div>
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Vertical Orientation Peg Insertion (50μm)</div>
-          <video
-            src="vertical_peg_success_Q.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Vertical peg-in-hole task (50μm clearance)</div>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Dragging along rail</div>
-          <video
-            src="half_drag_Q.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Half drag manipulation task</div>
-        </div>
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Drawing Task</div>
-          <video
-            src="smiley face_Q.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Smiley face drawing task demonstrating precise control</div>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Horizontal Peg Insertion with Heavy Peg (50μm)</div>
-          <video
-            src="heavypeg.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Heavy peg insertion task demonstrating robustness</div>
-        </div>
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Glass Tube Insertion</div>
-          <video
-            src="glasstube.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Delicate glass tube insertion demonstrating precision control</div>
-        </div>
-      </div>
-
-      ### Selective Variable Stiffness 
-
-      <div style="text-align: center; margin-bottom: 16px;">
-        <div style="font-weight: bold; margin-bottom: 6px;">Door Opening Task</div>
-        <div style="display: flex; gap: 24px; align-items: stretch; justify-content: center; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 300px; max-width: 500px;">
-            <video
-              src="opening_door.mp4"
-              controls
-              loop
-              muted
-              style="width: 100%; height: 100%; object-fit: cover;"
-            />
-          </div>
-          <div style="flex: 1; min-width: 300px; max-width: 500px;">
-            <img 
-              src="door_opening.png" 
-              alt="Door Opening Force Analysis" 
-              style="width: 100%; height: 100%; object-fit: contain;"
-            />
-          </div>
-        </div>
-        <div style="margin-top: 12px; text-align: left; max-width: 1000px; margin-left: auto; margin-right: auto;">
-          <div class="uk-text-meta">
-            This experiment demonstrates the benefit of variable stiffness: <strong>full lock mode</strong> is used during the push/rotation phase to efficiently transmit torque, then switches to <strong>free mode</strong> once the latch releases, allowing the door handle's return spring to set the final pose without robot resistance. This human-like strategy reduces the need for precise "rotate-back" motions and improves generalization across different door mechanisms.
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-bottom: 16px;">
-        <div style="font-weight: bold; margin-bottom: 6px;">Key Insertion</div>
-        <video
-          src="var_stiffness_key_Q.mp4"
-          controls
-          loop
-          muted
-          style="width: 100%; max-width: 600px;"
-        />
-        <div class="uk-text-meta">Variable stiffness demonstration with key insertion</div>
-        <div style="margin-top: 16px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto; padding: 12px; background-color: rgba(0,0,0,0.05); border-radius: 6px;">
-          <div style="color: #333; font-size: 14px; line-height: 1.5;">
-            This task demonstrates the strategic use of variable stiffness: <strong>high soft mode</strong> is used for initial contact and hole alignment, allowing the key to find the correct orientation without applying excessive force. Once aligned, <strong>lock mode</strong> is engaged for effective torque transmission during rotation and pulling out, providing the necessary rigidity for the rotational motion and extraction phases.
-          </div>
-        </div>
-      </div>
-
-  - title: Robustness Evaluation
-    text: |
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Drawer Manipulation with Perturbation</div>
-          <video
-            src="robustness_drawer_Q.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Robust drawer pulling task with external perturbations</div>
-        </div>
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Tilted Dish with Metal Screw</div>
-          <video
-            src="robustness_dish_1_Q.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Dish manipulation with tilted surface and metal screw obstacle</div>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px;">
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Dish Manipulation with Perturbation</div>
-          <video
-            src="robustness_dish_2_Q.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Dish handling with external perturbations during manipulation</div>
-        </div>
-        <div style="flex: 1 1 300px; min-width: 260px; max-width: 600px; text-align: center;">
-          <div style="font-weight: bold; margin-bottom: 6px;">Rotated Initial Position</div>
-          <video
-            src="robust_initial.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 600px;"
-          />
-          <div class="uk-text-meta">Robustness test with rotated starting configuration</div>
-        </div>
-      </div>
-
-  - title: Validation on a different robot arm
-    text: |
-
-      <div style="text-align: center;">
-        <strong>
-          <a href="https://global.agilex.ai/products/piper" target="_blank" rel="noopener noreferrer">
-            AGILE X PiPER
-          </a>
-        </strong>
-        <div style="margin-top: 14px;">
-          <video
-            src="piper.mp4"
-            controls
-            loop
-            muted
-            style="width: 100%; max-width: 720px;"
-          />
-        </div>
-      </div>
+  - type: teleoperation
+    title: Teleoperation Interface
+    text: We also integrate bilateral teleoperation hardware for an end-effector force-based robot arm. The lever selects stiffness mode, and haptic feedback helps operators collect safer demonstrations.
+    images:
+      - src: teleop.png
+        caption: Control architecture with force feedback.
+      - src: teleop_real.png
+        caption: Physical leader-follower setup.
+    videos:
+      - src: gravity_comp_web.mp4
+        title: Gravity compensation
+        caption: Comfortable free-space operation.
+      - src: feedback_web.mp4
+        title: Haptic feedback
+        caption: Interaction force returned to the operator.
