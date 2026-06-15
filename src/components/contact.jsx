@@ -120,7 +120,7 @@ export default class Contact extends React.Component {
     return (
       <div className="uk-section">
         <h2 className="uk-heading-line uk-text-center">Contact</h2>
-        <div className="uk-grid-medium" data-uk-grid>
+        <div className="uk-grid-medium claw-contact-grid" data-uk-grid>
           {this.props.contact_ids.map((cid) => {
             if (cid == 'omron') {
               return <OmronContactCard key={'contact-omron'} />;

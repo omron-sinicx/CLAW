@@ -562,6 +562,19 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .claw-three-video-section .claw-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .claw-section-header-wide h2 {
+    font-size: 21px;
+    white-space: normal;
+  }
+
+  .claw-section-header {
+    max-width: 100%;
+  }
+
   .claw-authors-row {
     justify-content: center;
     gap: 10px 22px;
@@ -574,6 +587,14 @@ body {
 
   .claw-resource-button {
     font-size: 15px;
+  }
+
+  .claw-contact-grid {
+    margin-left: 0;
+  }
+
+  .claw-contact-grid > * {
+    padding-left: 0;
   }
 
   .claw-page-section {
