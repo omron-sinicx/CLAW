@@ -121,13 +121,10 @@ body {
     padding-bottom: 54px;
   }
 
-  .uk-container-small {
-    max-width: 1380px;
-  }
-
+  // Match the body column width (UIkit `uk-container-small` default = 900px)
+  // so the title and authors align with the rest of the page.
   .uk-h2,
   .uk-h1 {
-    max-width: 1320px;
     margin-right: auto;
     margin-left: auto;
     line-height: 1.28;

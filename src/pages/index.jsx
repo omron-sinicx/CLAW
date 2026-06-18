@@ -24,12 +24,26 @@ class Template extends React.Component {
   }
 
   componentDidMount() {
-    // Wait for styles to load, then hide loading screen and show content
-    setTimeout(() => {
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
       document.body.classList.add('react-loaded');
       document.body.style.overflow = 'auto'; // Re-enable scrolling
       this.setState({ isLoaded: true });
-    }, 100);
+    };
+
+    // Keep the loading screen up until the web fonts (Mattone, Poppins, Inter)
+    // have actually loaded, so we don't flash fallback fonts and reflow.
+    const fontsReady =
+      typeof document !== 'undefined' && document.fonts
+        ? document.fonts.ready
+        : Promise.resolve();
+
+    fontsReady.then(reveal);
+
+    // Safety net: never block longer than 2.5s on a slow font CDN.
+    setTimeout(reveal, 2500);
   }
 
   render() {

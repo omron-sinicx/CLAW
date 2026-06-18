@@ -14,7 +14,7 @@ resources:
 description: CLAW is a lightweight, low-cost flexible wrist that improves learned contact-rich manipulation through passive 6-DoF compliance and switchable anisotropic stiffness.
 authors:
   - name: Steven Oh*
-    affiliation: [1]
+    affiliation: [1, 2]
     position: intern
     url: https://stevenoh2003.github.io
   - name: Tomoya Takahashi*
@@ -35,6 +35,7 @@ authors:
 contact_ids: [5, 'omron']
 affiliations:
   - OMRON SINIC X Corporation
+  - Waseda University
 meta:
   - '* Equal Contribution'
 bibtex: |
